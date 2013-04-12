@@ -1,4 +1,4 @@
-package model;
+package imodel;
 
 public interface IBricks {
 	

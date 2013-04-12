@@ -1,7 +1,7 @@
 package controller;
 
+import imodel.IBricks;
 import model.IBrick;
-import model.IBricks;
 import model.Playfield;
 
 public class Controller {

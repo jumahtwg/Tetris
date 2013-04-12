@@ -1,5 +1,7 @@
 package model;
 
+import imodel.IBricks;
+
 public class IBrick implements IBricks {
 	
 	int[][] brick;
