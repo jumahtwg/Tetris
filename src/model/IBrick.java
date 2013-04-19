@@ -6,7 +6,7 @@ public class IBrick implements IBricks {
 	
 	private int[][] brick;
 	private int color;
-	private int status;
+	private EnumStatus status;
 	
 	public IBrick() {
 		color = 7;
@@ -17,14 +17,14 @@ public class IBrick implements IBricks {
 		brick[1][3] = color;
 		
 		color = 7;
-		status = 0;
+		status = EnumStatus.up;
 	}
 
 	public int[][] getBrick() {
 		return brick;
 	}
 	
-	public int getStatus() {
+	public EnumStatus getStatus() {
 		return status;
 	}
 
@@ -33,30 +33,30 @@ public class IBrick implements IBricks {
 		return color;
 	}
 
-	public void rotateLEFT(int status) {
+	public void rotateLEFT(EnumStatus status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {
 				brick[i][j] = 0;
 			}
 		}
-		if(status == 0 || status == 2) {
+		if(status == EnumStatus.up || status == EnumStatus.down) {
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[3][1] = color;
-			status = 1;
+			status = EnumStatus.right;
 		} else {
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[1][3] = color;
-			status = 3;
+			status = EnumStatus.up;
 		}
 
 		
 	}
 
-	public void rotateRIGHT(int status) {
+	public void rotateRIGHT(EnumStatus status) {
 		rotateLEFT(status);
 	}
 }
