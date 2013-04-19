@@ -1,9 +1,9 @@
 package model;
 
 public class Playfield {
-	int[][][] Playfield;
-	int middle;
-	int playfieldLength;
+	private int[][][] Playfield;
+	private int middle;
+	private int playfieldLength;
 	
 	public Playfield(int i, int j) {
 		Playfield = new int[i][j][];
@@ -16,6 +16,10 @@ public class Playfield {
 	
 	public int getStartMiddle() {
 		return middle;
+	}
+	
+	public int getFieldLength() {
+		return playfieldLength;
 	}
 	
 	public void deleteRow(int rowNumber) {

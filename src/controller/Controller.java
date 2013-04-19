@@ -1,12 +1,13 @@
 package controller;
 
-import imodel.IBricks;
-import model.IBrick;
+
+
 import model.Playfield;
 
 public class Controller {
-	
-	Playfield playfld;
+	enum EnumStatus {SquareBrick, LBrick, RevLBrick, TBrick, ZBrick, SBrick, IBrick };
+	private Playfield playfld;
+
 	
 	public void init(int xSize, int ySize) {
 		playfld = new Playfield(xSize, ySize);
@@ -15,9 +16,9 @@ public class Controller {
 	
 	public int createRandomBrick() {
 		return (int) (Math.random() % 7);
+			
+		
 	}
-	
-	IBricks iBrick = new IBrick();
 	
 	
 }

@@ -39,5 +39,10 @@ public class SquareBrick implements IBricks {
 		//squareBrick => do nothing
 		
 	}
+	@Override
+	public void setStatus(EnumStatus status) {
+		this.status = status;
+		
+	}
 
 }
