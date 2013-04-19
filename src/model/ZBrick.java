@@ -21,5 +21,15 @@ public class ZBrick implements IBricks {
 	public int getColor() {
 		return color;
 	}
+	@Override
+	public void rotateLEFT(int status) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void rotateRIGHT(int status) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -6,11 +6,17 @@ public class SquareBrick implements IBricks {
 
 	int[][] brick;
 	int color;
+	int status;
 	
 	SquareBrick() {
-		int[][] squareBrick = { {1,1}, {2,1}, {2,3}, {3,3} };
-		brick = squareBrick;
+		status = 0;
 		color = 1;
+		brick = new int[3][3];
+		brick[1][1] = color;
+		brick[1][2] = color;
+		brick[2][1] = color;
+		brick[2][2] = color;
+		
 	}
 	@Override
 	public int[][] getBrick() {
@@ -20,6 +26,16 @@ public class SquareBrick implements IBricks {
 	@Override
 	public int getColor() {
 		return color;
+	}
+	@Override
+	public void rotateLEFT(int status) {
+		//squareBrick => do nothing
+		
+	}
+	@Override
+	public void rotateRIGHT(int status) {
+		//squareBrick => do nothing
+		
 	}
 
 }
