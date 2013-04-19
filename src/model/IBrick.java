@@ -15,8 +15,6 @@ public class IBrick implements IBricks {
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[1][3] = color;
-		
-		color = 7;
 		status = EnumStatus.up;
 	}
 

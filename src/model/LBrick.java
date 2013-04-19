@@ -6,7 +6,7 @@ public class LBrick implements IBricks {
 
 	private int[][] brick;
 	private int color;
-	private int status;
+	private EnumStatus status;
 	
 	LBrick() {
 		color = 2;
@@ -15,7 +15,7 @@ public class LBrick implements IBricks {
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[2][2] = color;
-		status = 0;
+		status = EnumStatus.up;
 	}
 
 	public int[][] getBrick() {
@@ -27,84 +27,84 @@ public class LBrick implements IBricks {
 		return color;
 	}
 	
-	public int getStatus() {
+	public EnumStatus getStatus() {
 		return status;
 	}
 
 
-	public void rotateLEFT(int status) {
+	public void rotateLEFT(EnumStatus status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {
 				brick[i][j] = 0;
 			}
 		}
 		switch(status) {
-		case 0:
+		case up:
 			brick[1][2] = color;
 			brick[2][2] = color;
 			brick[3][2] = color;
 			brick[4][1] = color;
-			status = 3;
+			status = EnumStatus.left;
 			break;
-		case 1:
+		case right:
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[2][2] = color;
-			status = 0;
+			status = EnumStatus.up;
 			break;
-		case 2:
+		case down:
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[0][2] = color;
-			status = 1;
+			status = EnumStatus.right;
 			break;
-		case 3:
+		case left:
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
 			brick[2][3] = color;
-			status = 2;
+			status = EnumStatus.down;
 			break;
 		}
 		
 	}
 
-	public void rotateRIGHT(int status) {
+	public void rotateRIGHT(EnumStatus status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {
 				brick[i][j] = 0;
 			}
 		}
 		switch(status) {
-		case 0:
+		case up:
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[0][2] = color;
-			status = 1;
+			status = EnumStatus.right;
 			break;
-		case 1:
+		case right:
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
 			brick[2][3] = color;
-			status = 2;
+			status = EnumStatus.down;
 			break;
-		case 2:
+		case down:
 			brick[1][2] = color;
 			brick[2][2] = color;
 			brick[3][2] = color;
 			brick[4][1] = color;
-			status = 3;
+			status = EnumStatus.left;
 			break;
-		case 3:
+		case left:
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[2][2] = color;
-			status = 0;
+			status = EnumStatus.up;
 			break;
 		}
 	}

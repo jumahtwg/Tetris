@@ -6,10 +6,10 @@ public class SquareBrick implements IBricks {
 
 	private int[][] brick;
 	private int color;
-	private int status;
+	private EnumStatus status;
 	
 	SquareBrick() {
-		status = 0;
+		status = EnumStatus.up;
 		color = 1;
 		brick = new int[3][3];
 		brick[1][1] = color;
@@ -26,15 +26,15 @@ public class SquareBrick implements IBricks {
 		return color;
 	}
 	
-	public int getStatus() {
+	public EnumStatus getStatus() {
 		return status;
 	}
 
-	public void rotateLEFT(int status) {
+	public void rotateLEFT(EnumStatus status) {
 		//squareBrick => do nothing
 		
 	}
-	public void rotateRIGHT(int status) {
+	public void rotateRIGHT(EnumStatus status) {
 		//squareBrick => do nothing
 		
 	}
