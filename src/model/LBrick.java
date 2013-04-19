@@ -26,6 +26,11 @@ public class LBrick implements IBricks {
 	public int getColor() {
 		return color;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
+
 
 	public void rotateLEFT(int status) {
 		for (int i=0;i<3;i++) {

@@ -22,6 +22,11 @@ public class SBrick implements IBricks {
 	public int getColor() {
 		return color;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
+
 
 	public void rotateLEFT(int status) {
 		// TODO Auto-generated method stub

@@ -25,6 +25,11 @@ public class SquareBrick implements IBricks {
 	public int getColor() {
 		return color;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
+
 	public void rotateLEFT(int status) {
 		//squareBrick => do nothing
 		
