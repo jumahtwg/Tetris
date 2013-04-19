@@ -4,9 +4,9 @@ import imodel.IBricks;
 
 public class RevLBrick implements IBricks {
 	
-	int[][] brick;
-	int color;
-	int status;
+	private int[][] brick;
+	private int color;
+	private int status;
 	
 	RevLBrick() {
 		color = 3;

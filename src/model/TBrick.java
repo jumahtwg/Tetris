@@ -4,9 +4,9 @@ import imodel.IBricks;
 
 public class TBrick implements IBricks {
 	
-	int[][] brick;
-	int color;
-	int status;
+	private int[][] brick;
+	private int color;
+	private int status;
 	
 	TBrick() {
 		color = 4;
