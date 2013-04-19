@@ -30,6 +30,10 @@ public class TBrick implements IBricks {
 		return status;
 	}
 
+	public void setStatus(EnumStatus status) {
+		this.status = status;
+	}
+	
 	public void rotateLEFT(EnumStatus status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {
@@ -42,7 +46,7 @@ public class TBrick implements IBricks {
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			status = EnumStatus.left;
+			setStatus(EnumStatus.left);
 
 			break;
 		case right:
@@ -50,7 +54,7 @@ public class TBrick implements IBricks {
 			brick[0][2] = color;
 			brick[1][2] = color;
 			brick[1][3] = color;
-			status = EnumStatus.up;
+			setStatus(EnumStatus.up);
 			
 			break;
 		case down:
@@ -58,14 +62,14 @@ public class TBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			status = EnumStatus.left;
+			setStatus(EnumStatus.left);
 			break;
 		case left:
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			status = EnumStatus.down;
+			setStatus(EnumStatus.down);
 			break;
 		}
 	}
@@ -82,28 +86,28 @@ public class TBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			status = EnumStatus.right;
+			setStatus(EnumStatus.right);
 			break;
 		case right:
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			status = EnumStatus.down;
+			setStatus(EnumStatus.down);
 			break;
 		case down:
 			brick[1][0] = color;
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			status = EnumStatus.left;
+			setStatus(EnumStatus.left);
 			break;
 		case left:
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
 			brick[1][3] = color;
-			status = EnumStatus.up;
+			setStatus(EnumStatus.up);
 			break;
 		}
 	}

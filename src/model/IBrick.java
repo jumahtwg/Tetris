@@ -30,6 +30,10 @@ public class IBrick implements IBricks {
 	public int getColor() {
 		return color;
 	}
+	
+	public void setStatus(EnumStatus status) {
+		this.status = status;
+	}
 
 	public void rotateLEFT(EnumStatus status) {
 		for (int i=0;i<3;i++) {
@@ -42,13 +46,13 @@ public class IBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[3][1] = color;
-			status = EnumStatus.right;
+			setStatus(EnumStatus.right);
 		} else {
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[1][3] = color;
-			status = EnumStatus.up;
+			setStatus(EnumStatus.up);
 		}
 
 		

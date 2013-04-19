@@ -29,6 +29,7 @@ public class SquareBrick implements IBricks {
 	public EnumStatus getStatus() {
 		return status;
 	}
+	
 
 	public void rotateLEFT(EnumStatus status) {
 		//squareBrick => do nothing
