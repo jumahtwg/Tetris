@@ -12,21 +12,21 @@ public class SBrick implements IBricks {
 		brick = squareBrick;
 		color = 5;
 	}
-	@Override
+
 	public int[][] getBrick() {
 		return brick;
 	}
 
-	@Override
+
 	public int getColor() {
 		return color;
 	}
-	@Override
+
 	public void rotateLEFT(int status) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
+
 	public void rotateRIGHT(int status) {
 		// TODO Auto-generated method stub
 		

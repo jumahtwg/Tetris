@@ -17,16 +17,16 @@ public class LBrick implements IBricks {
 		brick[2][2] = color;
 		status = 0;
 	}
-	@Override
+
 	public int[][] getBrick() {
 		return brick;
 	}
 
-	@Override
+
 	public int getColor() {
 		return color;
 	}
-	@Override
+
 	public void rotateLEFT(int status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {
@@ -65,7 +65,7 @@ public class LBrick implements IBricks {
 		}
 		
 	}
-	@Override
+
 	public void rotateRIGHT(int status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {

@@ -18,21 +18,17 @@ public class SquareBrick implements IBricks {
 		brick[2][2] = color;
 		
 	}
-	@Override
 	public int[][] getBrick() {
 		return brick;
 	}
 
-	@Override
 	public int getColor() {
 		return color;
 	}
-	@Override
 	public void rotateLEFT(int status) {
 		//squareBrick => do nothing
 		
 	}
-	@Override
 	public void rotateRIGHT(int status) {
 		//squareBrick => do nothing
 		
