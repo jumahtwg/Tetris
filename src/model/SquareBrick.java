@@ -11,7 +11,7 @@ public class SquareBrick implements IBricks {
 	SquareBrick() {
 		status = EnumStatus.up;
 		color = EnumColor.green;
-		brick = new EnumColor[3][3];
+		brick = new EnumColor[THREE][THREE];
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[2][1] = color;

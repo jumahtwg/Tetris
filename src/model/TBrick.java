@@ -2,6 +2,7 @@ package model;
 
 import imodel.IBricks;
 
+
 public class TBrick implements IBricks {
 	
 	private EnumColor[][] brick;
@@ -10,11 +11,11 @@ public class TBrick implements IBricks {
 	
 	TBrick() {
 		color = EnumColor.white;
-		brick = new EnumColor[3][3];
+		brick = new EnumColor[THREE][THREE];
 		brick[1][1] = color;
 		brick[0][2] = color;
 		brick[1][2] = color;
-		brick[1][3] = color;
+		brick[1][THREE] = color;
 		status = EnumStatus.up;
 		
 	}
@@ -34,12 +35,16 @@ public class TBrick implements IBricks {
 		this.status = status;
 	}
 	
-	public void rotateLEFT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
+	public void clearBrick(EnumStatus status) {
+		for (int i=0;i<THREE;i++) {
+			for ( int j=0; j<THREE; j++) {
 				brick[i][j] = EnumColor.empty;
 			}
 		}
+	}
+	
+	public void rotateLEFT(EnumStatus status) {
+		clearBrick(status);
 		switch(status) {
 		case up:
 			brick[1][0] = color;
@@ -53,7 +58,7 @@ public class TBrick implements IBricks {
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
-			brick[1][3] = color;
+			brick[1][THREE] = color;
 			setStatus(EnumStatus.up);
 			
 			break;
@@ -75,11 +80,7 @@ public class TBrick implements IBricks {
 	}
 		
 	public void rotateRIGHT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
-				brick[i][j] = EnumColor.empty;
-			}
-		}
+		clearBrick(status);
 		switch(status) {
 		case up:
 			brick[1][0] = color;
@@ -106,7 +107,7 @@ public class TBrick implements IBricks {
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
-			brick[1][3] = color;
+			brick[1][THREE] = color;
 			setStatus(EnumStatus.up);
 			break;
 		}

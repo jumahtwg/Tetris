@@ -9,6 +9,7 @@ public interface IBricks {
 	public void rotateLEFT(EnumStatus stat);
 	public void rotateRIGHT(EnumStatus stat);
 	public void setStatus(EnumStatus status);
+	public static int THREE = 3;
 	
 	
 }

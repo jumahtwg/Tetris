@@ -2,6 +2,7 @@ package model;
 
 import imodel.IBricks;
 
+
 public class ZBrick implements IBricks {
 
 	private EnumColor[][] brick;
@@ -10,11 +11,11 @@ public class ZBrick implements IBricks {
 	
 	ZBrick() {
 		color = EnumColor.orange;
-		brick = new EnumColor[3][3];
+		brick = new EnumColor[THREE][THREE];
 		brick[1][1] = color;
 		brick[2][1] = color;
 		brick[2][2] = color;
-		brick[3][2] = color;
+		brick[THREE][2] = color;
 		status = EnumStatus.up;
 	}
 
@@ -34,13 +35,17 @@ public class ZBrick implements IBricks {
 	public void setStatus(EnumStatus status) {
 		this.status = status;
 	}
-
-	public void rotateLEFT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
+	
+	public void clearBrick(EnumStatus status) {
+		for (int i=0;i<THREE;i++) {
+			for ( int j=0; j<THREE; j++) {
 				brick[i][j] = EnumColor.empty;
 			}
 		}
+	}
+
+	public void rotateLEFT(EnumStatus status) {
+		clearBrick(status);
 		switch(status) {
 		case up:
 			brick[2][0] = color;
@@ -53,7 +58,7 @@ public class ZBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[3][2] = color;
+			brick[THREE][2] = color;
 			setStatus(EnumStatus.down);
 			break;
 		case down:
@@ -67,18 +72,14 @@ public class ZBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[3][2] = color;
+			brick[THREE][2] = color;
 			setStatus(EnumStatus.up);
 			break;
 		}		
 	}
 
 	public void rotateRIGHT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
-				brick[i][j] = EnumColor.empty;
-			}
-		}
+		clearBrick(status);
 		switch(status) {
 		case up:
 			brick[2][0] = color;
@@ -91,7 +92,7 @@ public class ZBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[3][2] = color;
+			brick[THREE][2] = color;
 			setStatus(EnumStatus.down);
 			break;
 		case down:
@@ -105,7 +106,7 @@ public class ZBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[3][2] = color;
+			brick[THREE][2] = color;
 			setStatus(EnumStatus.up);
 			break;
 		}		

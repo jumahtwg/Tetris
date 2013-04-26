@@ -2,6 +2,7 @@ package model;
 
 import imodel.IBricks;
 
+
 public class LBrick implements IBricks {
 
 	private EnumColor[][] brick;
@@ -10,7 +11,7 @@ public class LBrick implements IBricks {
 	
 	LBrick() {
 		color = EnumColor.yellow;
-		brick = new EnumColor[3][3];
+		brick = new EnumColor[THREE][THREE];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
@@ -34,20 +35,24 @@ public class LBrick implements IBricks {
 	public void setStatus(EnumStatus status) {
 		this.status = status;
 	}
-
-
-	public void rotateLEFT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
+	
+	public void clearBrick(EnumStatus status) {
+		for (int i=0;i<THREE;i++) {
+			for ( int j=0; j<THREE; j++) {
 				brick[i][j] = EnumColor.empty;
 			}
 		}
+	}
+
+
+	public void rotateLEFT(EnumStatus status) {
+		clearBrick(status);
 		switch(status) {
 		case up:
 			brick[1][2] = color;
 			brick[2][2] = color;
-			brick[3][2] = color;
-			brick[4][1] = color;
+			brick[THREE][2] = color;
+			brick[THREE][1] = color;
 			setStatus(EnumStatus.left);
 			break;
 		case right:
@@ -68,7 +73,7 @@ public class LBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[2][3] = color;
+			brick[2][THREE] = color;
 			setStatus(EnumStatus.down);
 			break;
 		}
@@ -76,11 +81,7 @@ public class LBrick implements IBricks {
 	}
 
 	public void rotateRIGHT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
-				brick[i][j] = EnumColor.empty;
-			}
-		}
+		clearBrick(status);
 		switch(status) {
 		case up:
 			brick[0][1] = color;
@@ -93,14 +94,14 @@ public class LBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[2][3] = color;
+			brick[2][THREE] = color;
 			setStatus(EnumStatus.down);
 			break;
 		case down:
 			brick[1][2] = color;
 			brick[2][2] = color;
-			brick[3][2] = color;
-			brick[4][1] = color;
+			brick[THREE][2] = color;
+			brick[THREE][1] = color;
 			setStatus(EnumStatus.left);
 			break;
 		case left:

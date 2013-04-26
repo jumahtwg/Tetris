@@ -10,11 +10,11 @@ public class IBrick implements IBricks {
 	
 	public IBrick() {
 		color = EnumColor.blue;
-		brick = new EnumColor[3][3];
+		brick = new EnumColor[THREE][THREE];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
-		brick[1][3] = color;
+		brick[1][THREE] = color;
 		status = EnumStatus.up;
 	}
 
@@ -34,24 +34,28 @@ public class IBrick implements IBricks {
 	public void setStatus(EnumStatus status) {
 		this.status = status;
 	}
-
-	public void rotateLEFT(EnumStatus status) {
-		for (int i=0;i<3;i++) {
-			for ( int j=0; j<3; j++) {
+	
+	public void clearBrick(EnumStatus status) {
+		for (int i=0;i<THREE;i++) {
+			for ( int j=0; j<THREE; j++) {
 				brick[i][j] = EnumColor.empty;
 			}
 		}
+	}
+
+	public void rotateLEFT(EnumStatus status) {
+		clearBrick(status);
 		if(status == EnumStatus.up || status == EnumStatus.down) {
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
-			brick[3][1] = color;
+			brick[THREE][1] = color;
 			setStatus(EnumStatus.right);
 		} else {
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			brick[1][3] = color;
+			brick[1][THREE] = color;
 			setStatus(EnumStatus.up);
 		}
 
