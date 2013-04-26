@@ -11,7 +11,6 @@ public class Controller {
 	
 	public void init(int xSize, int ySize) {
 		playfld = new Playfield(xSize, ySize);
-		playfld.setBrick(createRandomBrick(), xSize/2, 3);
 	}
 	
 	public int createRandomBrick() {
