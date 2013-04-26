@@ -1,16 +1,17 @@
 package model;
 
 public class Playfield {
-	private int[][][] Playfield;
+	enum EnumColor {empty, green, yellow, red, white, purple, orange, blue};
+	private EnumColor[][][] Playfield;
 	private int middle;
 	private int playfieldLength;
 	
 	public Playfield(int i, int j) {
-		Playfield = new int[i][j][];
+		Playfield = new EnumColor[i][j][];
 		middle = i/2;
 	}
 	
-	public int[][][] getPlayfield() {
+	public EnumColor[][][] getPlayfield() {
 		return Playfield;
 	}
 	
@@ -25,7 +26,7 @@ public class Playfield {
 	public void deleteRow(int rowNumber) {
 		for(int i = 0; i <= middle*2; i++) {
 			for(int j = 1;j <= 7; j++) {
-				Playfield[i][rowNumber][j] = 0;
+				Playfield[i][rowNumber][j] = EnumColor.empty;
 			}
 		}
 	}

@@ -4,13 +4,13 @@ import imodel.IBricks;
 
 public class IBrick implements IBricks {
 	
-	private int[][] brick;
-	private int color;
+	private EnumColor[][] brick;
+	private EnumColor color;
 	private EnumStatus status;
 	
 	public IBrick() {
-		color = 7;
-		brick = new int[3][3];
+		color = EnumColor.blue;
+		brick = new EnumColor[3][3];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
@@ -18,7 +18,7 @@ public class IBrick implements IBricks {
 		status = EnumStatus.up;
 	}
 
-	public int[][] getBrick() {
+	public EnumColor[][] getBrick() {
 		return brick;
 	}
 	
@@ -27,7 +27,7 @@ public class IBrick implements IBricks {
 	}
 
 
-	public int getColor() {
+	public EnumColor getColor() {
 		return color;
 	}
 	
@@ -38,7 +38,7 @@ public class IBrick implements IBricks {
 	public void rotateLEFT(EnumStatus status) {
 		for (int i=0;i<3;i++) {
 			for ( int j=0; j<3; j++) {
-				brick[i][j] = 0;
+				brick[i][j] = EnumColor.empty;
 			}
 		}
 		if(status == EnumStatus.up || status == EnumStatus.down) {
