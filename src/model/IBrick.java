@@ -2,15 +2,18 @@ package model;
 
 import imodel.IBricks;
 
+
 public class IBrick implements IBricks {
 	
-	private EnumColor[][] brick;
-	private EnumColor color;
+	private controller.Controller.EnumColor[][] brick;
+	private controller.Controller.EnumColor color;
 	private EnumStatus status;
-	
+	/*
+	 * standard constructor
+	 */
 	public IBrick() {
-		color = EnumColor.blue;
-		brick = new EnumColor[THREE][THREE];
+		color = controller.Controller.EnumColor.blue;
+		brick = new controller.Controller.EnumColor[THREE][THREE];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
@@ -18,7 +21,7 @@ public class IBrick implements IBricks {
 		status = EnumStatus.up;
 	}
 
-	public EnumColor[][] getBrick() {
+	public controller.Controller.EnumColor[][] getBrick() {
 		return brick;
 	}
 	
@@ -27,7 +30,7 @@ public class IBrick implements IBricks {
 	}
 
 
-	public EnumColor getColor() {
+	public controller.Controller.EnumColor getColor() {
 		return color;
 	}
 	
@@ -38,7 +41,7 @@ public class IBrick implements IBricks {
 	public void clearBrick(EnumStatus status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
-				brick[i][j] = EnumColor.empty;
+				brick[i][j] = controller.Controller.EnumColor.empty;
 			}
 		}
 	}

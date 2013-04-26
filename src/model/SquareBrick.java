@@ -4,25 +4,28 @@ import imodel.IBricks;
 
 public class SquareBrick implements IBricks {
 
-	private EnumColor[][] brick;
-	private EnumColor color;
+	private controller.Controller.EnumColor[][] brick;
+	private controller.Controller.EnumColor color;
 	private EnumStatus status;
 	
-	SquareBrick() {
+	/*
+	 * standard constructor
+	 */
+	public SquareBrick() {
 		status = EnumStatus.up;
-		color = EnumColor.green;
-		brick = new EnumColor[THREE][THREE];
+		color = controller.Controller.EnumColor.green;
+		brick = new controller.Controller.EnumColor[THREE][THREE];
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[2][1] = color;
 		brick[2][2] = color;
 		
 	}
-	public EnumColor[][] getBrick() {
+	public controller.Controller.EnumColor[][] getBrick() {
 		return brick;
 	}
 
-	public EnumColor getColor() {
+	public controller.Controller.EnumColor getColor() {
 		return color;
 	}
 	

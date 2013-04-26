@@ -5,13 +5,16 @@ import imodel.IBricks;
 
 public class ZBrick implements IBricks {
 
-	private EnumColor[][] brick;
-	private EnumColor color;
+	private controller.Controller.EnumColor[][] brick;
+	private controller.Controller.EnumColor color;
 	private EnumStatus status;
 	
-	ZBrick() {
-		color = EnumColor.orange;
-		brick = new EnumColor[THREE][THREE];
+	/*
+	 * standard constructor
+	 */
+	public ZBrick() {
+		color = controller.Controller.EnumColor.orange;
+		brick = new controller.Controller.EnumColor[THREE][THREE];
 		brick[1][1] = color;
 		brick[2][1] = color;
 		brick[2][2] = color;
@@ -19,12 +22,12 @@ public class ZBrick implements IBricks {
 		status = EnumStatus.up;
 	}
 
-	public EnumColor[][] getBrick() {
+	public controller.Controller.EnumColor[][] getBrick() {
 		return brick;
 	}
 
 
-	public EnumColor getColor() {
+	public controller.Controller.EnumColor getColor() {
 		return color;
 	}
 	
@@ -39,7 +42,7 @@ public class ZBrick implements IBricks {
 	public void clearBrick(EnumStatus status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
-				brick[i][j] = EnumColor.empty;
+				brick[i][j] = controller.Controller.EnumColor.empty;
 			}
 		}
 	}
