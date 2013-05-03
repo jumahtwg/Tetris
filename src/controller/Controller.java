@@ -104,7 +104,8 @@ public class Controller extends Observable {
 	}
 	
 	public int[][] createRandomBrick() {
-		int x = (int) ((Math.random()*10) % 6);
+//		int x = (((int) ((Math.random()*10) % 7)))+1;
+		int x = 7;
 		switch (x) {
 		case 1:
 			SquareBrick sqrbrick = new SquareBrick();

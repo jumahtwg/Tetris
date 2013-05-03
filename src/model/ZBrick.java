@@ -15,10 +15,10 @@ public class ZBrick implements IBricks {
 	public ZBrick() {
 		color = 6;
 		brick = new int[THREE][THREE];
+		brick[0][1] = color;
 		brick[1][1] = color;
-		brick[2][1] = color;
+		brick[1][2] = color;
 		brick[2][2] = color;
-		brick[THREE][2] = color;
 		status = 0;
 	}
 
@@ -58,10 +58,10 @@ public class ZBrick implements IBricks {
 			setDirection(1);
 			break;
 		case 1:
+			brick[0][1] = color;
 			brick[1][1] = color;
-			brick[2][1] = color;
+			brick[1][2] = color;
 			brick[2][2] = color;
-			brick[THREE][2] = color;
 			setDirection(2);
 			break;
 		case 2:
@@ -72,10 +72,10 @@ public class ZBrick implements IBricks {
 			setDirection(3);
 			break;
 		case 3:
+			brick[0][1] = color;
 			brick[1][1] = color;
-			brick[2][1] = color;
+			brick[1][2] = color;
 			brick[2][2] = color;
-			brick[THREE][2] = color;
 			setDirection(0);
 			break;
 		}		
@@ -92,10 +92,10 @@ public class ZBrick implements IBricks {
 			setDirection(1);
 			break;
 		case 1:
+			brick[0][1] = color;
 			brick[1][1] = color;
-			brick[2][1] = color;
+			brick[1][2] = color;
 			brick[2][2] = color;
-			brick[THREE][2] = color;
 			setDirection(2);
 			break;
 		case 2:
@@ -106,10 +106,10 @@ public class ZBrick implements IBricks {
 			setDirection(3);
 			break;
 		case 3:
+			brick[0][1] = color;
 			brick[1][1] = color;
-			brick[2][1] = color;
+			brick[1][2] = color;
 			brick[2][2] = color;
-			brick[THREE][2] = color;
 			setDirection(0);
 			break;
 		}		

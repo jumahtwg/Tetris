@@ -9,12 +9,13 @@ public class IBrick implements IBricks {
 	private int[][] brick;
 	private int color;
 	private int status;
+	private static final int FOUR = 4;
 	/*
 	 * standard constructor
 	 */
 	public IBrick() {
 		color = 7;
-		brick = new int[THREE][THREE];
+		brick = new int[FOUR][FOUR];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
@@ -37,8 +38,8 @@ public class IBrick implements IBricks {
 	
 	
 	public void clearBrick(int status) {
-		for (int i=0;i<THREE;i++) {
-			for ( int j=0; j<THREE; j++) {
+		for (int i=0;i<FOUR;i++) {
+			for ( int j=0; j<FOUR; j++) {
 				brick[i][j] = 0;
 			}
 		}

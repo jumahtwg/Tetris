@@ -3,7 +3,7 @@ package model;
 
 
 public class Playfield {
-	private static final int THREE = 3;
+	private static final int FOUR = 4;
 	private int[][] playfield;
 	private int middle;
 	final private int playfieldWidth;
@@ -49,16 +49,16 @@ public class Playfield {
 	}
 	
 	public void setBrick(int[][] brick, int x, int y) {
-		for (int i = 0; i < THREE; i++) {
-			for ( int j = 0; j < THREE; j++) {
+		for (int i = 0; i < FOUR; i++) {
+			for ( int j = 0; j < FOUR; j++) {
 				playfield[x+i][y+j] = brick[i][j];
 			}
 		}
 	}
 	
 	public boolean getCheckCollision(int[][] brick, int x, int y) {
-		for (int i = THREE; i == 0; i--) {
-			for ( int j = 0; j <= THREE+1; j--) {
+		for (int i = FOUR; i == 0; i--) {
+			for ( int j = 0; j <= FOUR+1; j--) {
 				if(brick[i][j] != 0) {
 					if(playfield[x+i][y+j] != 0) {
 						return true;

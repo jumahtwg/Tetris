@@ -18,7 +18,7 @@ public class TBrick implements IBricks {
 		brick[1][1] = color;
 		brick[0][2] = color;
 		brick[1][2] = color;
-		brick[1][THREE] = color;
+		brick[2][2] = color;
 		status = 0;
 		
 	}
@@ -57,7 +57,7 @@ public class TBrick implements IBricks {
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
-			brick[1][THREE] = color;
+			brick[2][2] = color;
 			setDirection(0);
 			
 			break;
@@ -106,7 +106,7 @@ public class TBrick implements IBricks {
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
-			brick[1][THREE] = color;
+			brick[2][2] = color;
 			setDirection(0);
 			break;
 		}
