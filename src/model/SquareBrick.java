@@ -6,13 +6,13 @@ public class SquareBrick implements IBricks {
 
 	private int[][] brick;
 	private int color;
-	private String status;
+	private int status;
 	
 	/*
 	 * standard constructor
 	 */
 	public SquareBrick() {
-		status = "up";
+		status = 0;
 		color = 1;
 		brick = new int[THREE][THREE];
 		brick[1][1] = color;
@@ -29,7 +29,7 @@ public class SquareBrick implements IBricks {
 		return color;
 	}
 	
-	public void setDirection(String status) {
+	public void setDirection(int status) {
 		this.status= status;
 	}
 	

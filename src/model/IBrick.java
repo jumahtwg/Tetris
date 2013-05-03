@@ -8,7 +8,7 @@ public class IBrick implements IBricks {
 	
 	private int[][] brick;
 	private int color;
-	private String status;
+	private int status;
 	/*
 	 * standard constructor
 	 */
@@ -19,14 +19,14 @@ public class IBrick implements IBricks {
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[1][THREE] = color;
-		status = "up";
+		status = 0;
 	}
 
 	public int[][] getBrick() {
 		return brick;
 	}
 	
-	public void setDirection(String status) {
+	public void setDirection(int status) {
 		this.status= status;
 	}
 
@@ -36,7 +36,7 @@ public class IBrick implements IBricks {
 	}
 	
 	
-	public void clearBrick(String status) {
+	public void clearBrick(int status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
 				brick[i][j] = 0;
@@ -46,18 +46,18 @@ public class IBrick implements IBricks {
 
 	public void rotateLEFT() {
 		clearBrick(status);
-		if(status == "up" || status == "down") {
+		if(status == 0 || status == 2) {
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[THREE][1] = color;
-			setDirection("right");
+			setDirection(1);
 		} else {
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[1][THREE] = color;
-			setDirection("up");
+			setDirection(0);
 		}
 
 		

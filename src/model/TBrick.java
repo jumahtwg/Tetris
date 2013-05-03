@@ -7,7 +7,7 @@ public class TBrick implements IBricks {
 	
 	private int[][] brick;
 	private int color;
-	private String status;
+	private int status;
 	
 	/*
 	 * standard constructor
@@ -19,7 +19,7 @@ public class TBrick implements IBricks {
 		brick[0][2] = color;
 		brick[1][2] = color;
 		brick[1][THREE] = color;
-		status = "up";
+		status = 0;
 		
 	}
 	public int[][] getBrick() {
@@ -31,11 +31,11 @@ public class TBrick implements IBricks {
 	}
 	
 
-	public void setDirection(String status) {
+	public void setDirection(int status) {
 		this.status= status;
 	}
 	
-	public void clearBrick(String status) {
+	public void clearBrick(int status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
 				brick[i][j] = 0;
@@ -46,34 +46,34 @@ public class TBrick implements IBricks {
 	public void rotateLEFT() {
 		clearBrick(status);
 		switch(status) {
-		case "up":
+		case 0:
 			brick[1][0] = color;
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			setDirection("left");
+			setDirection(3);
 			break;
-		case "right":
+		case 1:
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
 			brick[1][THREE] = color;
-			setDirection("up");
+			setDirection(0);
 			
 			break;
-		case "down":
+		case 2:
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			setDirection("left");
+			setDirection(3);
 			break;
-		case "left":
+		case 3:
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			setDirection("down");
+			setDirection(2);
 			break;
 		}
 	}
@@ -81,33 +81,33 @@ public class TBrick implements IBricks {
 	public void rotateRIGHT() {
 		clearBrick(status);
 		switch(status) {
-		case "up":
+		case 0:
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			setDirection("right");
+			setDirection(1);
 			break;
-		case "right":
+		case 1:
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[1][2] = color;
-			setDirection("down");
+			setDirection(2);
 			break;
-		case "down":
+		case 2:
 			brick[1][0] = color;
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			setDirection("left");
+			setDirection(3);
 			break;
-		case "left":
+		case 3:
 			brick[1][1] = color;
 			brick[0][2] = color;
 			brick[1][2] = color;
 			brick[1][THREE] = color;
-			setDirection("up");
+			setDirection(0);
 			break;
 		}
 	}

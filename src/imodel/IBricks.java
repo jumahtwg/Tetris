@@ -20,7 +20,7 @@ public interface IBricks {
 	/*
 	 * set the enum status (color or empty)
 	 */
-	void setDirection(String status);
+	void setDirection(int status);
 	/*
 	 * variable against magic numbers
 	 */
