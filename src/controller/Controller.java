@@ -1,8 +1,7 @@
 package controller;
 
 
-
-import model.EnumColor;
+import observer.Observable;
 import model.IBrick;
 import model.LBrick;
 import model.Playfield;
@@ -14,64 +13,132 @@ import model.ZBrick;
 
 
 
-public class Controller {
+public class Controller extends Observable {
 	
-	EnumColor[][] actBrick;
+
+	int xSize;
+	int ySize;
+	int brickLine = 0;
+	int brickSlot = 0;
+	private int gameSpeed = 1000;
+	Playfield playfield;
+	Playfield tmpField;
+	public enum EnumMove {moveLeft, moveRight, moveDown};
+	private EnumMove move;
+	int[][] playBrick;
+	int[][] actBrick;
+
 	
+	public EnumMove getMove() {
+		return move;
+	}
+
+	public void setMove(EnumMove move) {
+		this.move = move;
+	}
+
+	public int[][] getPlayfield() {
+		return playfield.getPlayfield();
+
+	}
+	public int getxSize() {
+		return xSize;
+	}
+
+	public int getySize() {
+		return ySize;
+	}
 
 	/*
 	 * initialize the playfield with height and width
 	 */
 	public void init(int xSize, int ySize) {
-		new Playfield(xSize, ySize);
+		this.xSize = xSize;
+		this.ySize = ySize;
+		playfield = new Playfield(xSize, ySize);
+		tmpField = playfield;
+		notifyShowGameArray();
+		setTopBrick();
 	}
 	
+	public void setTopBrick() {
+		playBrick = createRandomBrick();
+		int middle = playfield.getStartMiddle();
+		brickSlot = middle;
+		if (playfield.getCheckCollision(playBrick, middle, brickLine) == true) {
+			System.out.println("collision on spawn");
+		} else {
+			playfield.setBrick(playBrick, middle, brickLine);
+			notifyShowGameArray();
+			lowerBrick();
+		}
+	}
+
+	public void lowerBrick() {
+		playfield = tmpField;
+		++brickLine;
+		if (playfield.getCheckCollision(playBrick, brickSlot, brickLine)) {
+			System.out.println("Collision!");
+		} else {
+			playfield.setBrick(playBrick, brickSlot, brickLine);
+			tmpField = playfield;
+			try {
+				Thread.sleep(gameSpeed);
+				lowerBrick();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
 	
-	public EnumColor[][] createRandomBrick() {
-		int x = (int) (Math.random() % 6);
-		EnumColor[] enums = EnumColor.values();
-		EnumColor e = EnumColor.valueOf(enums[x].toString());
-		switch (e) {
-		case green:
+	public void fastLowerBrick() {
+		
+	}
+	
+	public void setGameSpeed(int speed) {
+		gameSpeed = speed;
+	}
+	
+	public int[][] createRandomBrick() {
+		int x = (int) ((Math.random()*10) % 6);
+		switch (x) {
+		case 1:
 			SquareBrick sqrbrick = new SquareBrick();
 			actBrick = sqrbrick.getBrick();
 			break;
-		case blue:
+		case 7:
 			IBrick ibrick = new IBrick();
 			actBrick = ibrick.getBrick();
 			break;
-		case empty:
+		case 0:
 			createRandomBrick();
 			break;
-		case orange:
+		case 6:
 			ZBrick zbrick = new ZBrick();
 			actBrick = zbrick.getBrick();
 			break;
-		case purple:
+		case 5:
 			SBrick sbrick = new SBrick();
 			actBrick = sbrick.getBrick();
 			break;
-		case red:
+		case 3:
 			RevLBrick revlbrick = new RevLBrick();
 			actBrick = revlbrick.getBrick();
 			break;
-		case white:
+		case 4:
 			TBrick tbrick = new TBrick();
 			actBrick = tbrick.getBrick();
 			break;
-		case yellow:
+		case 2:
 			LBrick lbrick = new LBrick();
 			actBrick = lbrick.getBrick();
 			break;
 		default:
 			break;
 		}
-		return actBrick;
-		
-		
-			
-		
+		return actBrick;	
 	}
-	
-	
+
 }

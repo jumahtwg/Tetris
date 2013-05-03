@@ -6,67 +6,64 @@ import imodel.IBricks;
 
 public class IBrick implements IBricks {
 	
-	private EnumColor[][] brick;
-	private EnumColor color;
-	private EnumStatus status;
+	private int[][] brick;
+	private int color;
+	private String status;
 	/*
 	 * standard constructor
 	 */
 	public IBrick() {
-		color = EnumColor.blue;
-		brick = new EnumColor[THREE][THREE];
+		color = 7;
+		brick = new int[THREE][THREE];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[1][THREE] = color;
-		status = EnumStatus.up;
+		status = "up";
 	}
 
-	public EnumColor[][] getBrick() {
+	public int[][] getBrick() {
 		return brick;
 	}
 	
-	public EnumStatus getStatus() {
-		return status;
+	public void setDirection(String status) {
+		this.status= status;
 	}
 
 
-	public EnumColor getColor() {
+	public int getColor() {
 		return color;
 	}
 	
-	public void setStatus(EnumStatus status) {
-		this.status = status;
-	}
 	
-	public void clearBrick(EnumStatus status) {
+	public void clearBrick(String status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
-				brick[i][j] = EnumColor.empty;
+				brick[i][j] = 0;
 			}
 		}
 	}
 
-	public void rotateLEFT(EnumStatus status) {
+	public void rotateLEFT() {
 		clearBrick(status);
-		if(status == EnumStatus.up || status == EnumStatus.down) {
+		if(status == "up" || status == "down") {
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[THREE][1] = color;
-			setStatus(EnumStatus.right);
+			setDirection("right");
 		} else {
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[1][THREE] = color;
-			setStatus(EnumStatus.up);
+			setDirection("up");
 		}
 
 		
 	}
 
-	public void rotateRIGHT(EnumStatus status) {
-		rotateLEFT(status);
+	public void rotateRIGHT() {
+		rotateLEFT();
 	}
 }

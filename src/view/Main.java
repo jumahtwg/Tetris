@@ -17,7 +17,11 @@ public class Main {
 		int height = scanner.nextInt();
 		
 		Controller ctrl = new Controller();
+		TUI tui = new TUI(ctrl);
+		
+		ctrl.addObserver(tui);
 		ctrl.init(width, height);
+		
 		scanner.close();
 	}
 

@@ -19,26 +19,13 @@ public class Observable {
 		subscribers.clear();
 	}
 
-	public void notifyShowGameFrame(){
+	public void notifyShowGameArray(){
 		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
 			IObserver observer = iter.next();
-			observer.updateShowGameFrame();
+			observer.updateShowGameArray();
 		}
 	}
 
-	public void notifyObserversPrintDice() {
-		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
-			IObserver observer = iter.next();
-			observer.updatePrintDice();
-		}
-	}
-
-	public void notifyObserversPrintActiveFigures(){
-		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
-			IObserver observer = iter.next();
-			observer.updatePrintFigures();
-		}
-	}
 
 	public void notifyObserversGetInput(){
 		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
@@ -46,29 +33,12 @@ public class Observable {
 			observer.updateInput();
 		}
 	}
-	public void notifyChoosePlayerCount(){
-		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
-			IObserver observer = iter.next();
-			observer.inputChoosePlayerCount();
-		}
-	}
-	public void notifyChooseFigure(){
-		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
-			IObserver observer = iter.next();
-			observer.updateChooseFigure();
-		}
-	}
-	public void notifyObserversRoll(){
-		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
-			IObserver observer = iter.next();
-			observer.updateObserversRoll();
-		}
-	}
+	
 
-	public void notifyObserversPlayerStatus(){
+	public void notifyObserversBrickStatus(){
 		for(Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();){
 			IObserver observer = iter.next();
-			observer.updatePlayerStatus();
+			observer.updateBrickStatus();
 		}
 	}
 

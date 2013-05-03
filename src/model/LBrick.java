@@ -4,114 +4,112 @@ import imodel.IBricks;
 
 public class LBrick implements IBricks {
 
-	private EnumColor[][] brick;
-	private EnumColor color;
-	private EnumStatus status;
+	private int[][] brick;
+	private int color;
+	private String status;
 	
 	/*
 	 * standard constructor
 	 */
 	public LBrick() {
-		color = EnumColor.yellow;
-		brick = new EnumColor[THREE][THREE];
+		color = 2;
+		brick = new int[THREE][THREE];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[2][2] = color;
-		status = EnumStatus.up;
+		status = "up";
 	}
 
-	public EnumColor[][] getBrick() {
+	public int[][] getBrick() {
 		return brick;
 	}
 
 
-	public EnumColor getColor() {
+	public int getColor() {
 		return color;
 	}
 	
-	public EnumStatus getStatus() {
-		return status;
-	}
+
 	
-	public void setStatus(EnumStatus status) {
+	public void setDirection(String status) {
 		this.status = status;
 	}
 	
-	public void clearBrick(EnumStatus status) {
+	public void clearBrick(String status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
-				brick[i][j] = EnumColor.empty;
+				brick[i][j] = 0;
 			}
 		}
 	}
 
 
-	public void rotateLEFT(EnumStatus status) {
+	public void rotateLEFT() {
 		clearBrick(status);
 		switch(status) {
-		case up:
+		case "up":
 			brick[1][2] = color;
 			brick[2][2] = color;
 			brick[THREE][2] = color;
 			brick[THREE][1] = color;
-			setStatus(EnumStatus.left);
+			setDirection("left");
 			break;
-		case right:
+		case "right":
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[2][2] = color;
-			setStatus(EnumStatus.up);
+			setDirection("up");
 			break;
-		case down:
+		case "down":
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[0][2] = color;
-			setStatus(EnumStatus.right);
+			setDirection("right");
 			break;
-		case left:
+		case "left":
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
 			brick[2][THREE] = color;
-			setStatus(EnumStatus.down);
+			setDirection("down");
 			break;
 		}
 		
 	}
 
-	public void rotateRIGHT(EnumStatus status) {
+	public void rotateRIGHT() {
 		clearBrick(status);
 		switch(status) {
-		case up:
+		case "up":
 			brick[0][1] = color;
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[0][2] = color;
-			setStatus(EnumStatus.right);
+			setDirection("right");
 			break;
-		case right:
+		case "right":
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
 			brick[2][THREE] = color;
-			setStatus(EnumStatus.down);
+			setDirection("down");
 			break;
-		case down:
+		case "down":
 			brick[1][2] = color;
 			brick[2][2] = color;
 			brick[THREE][2] = color;
 			brick[THREE][1] = color;
-			setStatus(EnumStatus.left);
+			setDirection("left");
 			break;
-		case left:
+		case "left":
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
 			brick[2][2] = color;
-			setStatus(EnumStatus.up);
+			setDirection("up");
 			break;
 		}
 	}

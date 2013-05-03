@@ -4,47 +4,42 @@ import imodel.IBricks;
 
 public class SquareBrick implements IBricks {
 
-	private EnumColor[][] brick;
-	private EnumColor color;
-	private EnumStatus status;
+	private int[][] brick;
+	private int color;
+	private String status;
 	
 	/*
 	 * standard constructor
 	 */
 	public SquareBrick() {
-		status = EnumStatus.up;
-		color = EnumColor.green;
-		brick = new EnumColor[THREE][THREE];
+		status = "up";
+		color = 1;
+		brick = new int[THREE][THREE];
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[2][1] = color;
 		brick[2][2] = color;
 		
 	}
-	public EnumColor[][] getBrick() {
+	public int[][] getBrick() {
 		return brick;
 	}
 
-	public EnumColor getColor() {
+	public int getColor() {
 		return color;
 	}
 	
-	public EnumStatus getStatus() {
-		return status;
+	public void setDirection(String status) {
+		this.status= status;
 	}
 	
 
-	public void rotateLEFT(EnumStatus status) {
+	public void rotateLEFT() {
 		//squareBrick => do nothing
 		
 	}
-	public void rotateRIGHT(EnumStatus status) {
+	public void rotateRIGHT() {
 		//squareBrick => do nothing
-		
-	}
-	@Override
-	public void setStatus(EnumStatus status) {
-		this.status = status;
 		
 	}
 
