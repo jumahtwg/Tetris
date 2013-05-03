@@ -2,6 +2,7 @@ package controller;
 
 
 
+import model.EnumColor;
 import model.IBrick;
 import model.LBrick;
 import model.Playfield;
@@ -12,10 +13,10 @@ import model.TBrick;
 import model.ZBrick;
 
 
+
 public class Controller {
 	
-	public enum EnumColor {empty, green, yellow, red, white, purple, orange, blue};
-	private EnumColor[][] actBrick;
+	model.EnumColor[][] actBrick;
 	
 
 	/*

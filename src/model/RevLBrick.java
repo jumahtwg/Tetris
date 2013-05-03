@@ -5,16 +5,16 @@ import imodel.IBricks;
 
 public class RevLBrick implements IBricks {
 	
-	private controller.Controller.EnumColor[][] brick;
-	private controller.Controller.EnumColor color;
+	private EnumColor[][] brick;
+	private EnumColor color;
 	private EnumStatus status;
 	
 	/*
 	 * standard constructor
 	 */
 	public RevLBrick() {
-		color = controller.Controller.EnumColor.red;
-		brick = new controller.Controller.EnumColor[THREE][THREE];
+		color = EnumColor.red;
+		brick = new EnumColor[THREE][THREE];
 		brick[2][0] = color;
 		brick[2][1] = color;
 		brick[2][2] = color;
@@ -22,11 +22,11 @@ public class RevLBrick implements IBricks {
 		status = EnumStatus.up;
 		
 	}
-	public controller.Controller.EnumColor[][] getBrick() {
+	public EnumColor[][] getBrick() {
 		return brick;
 	}
 
-	public controller.Controller.EnumColor getColor() {
+	public EnumColor getColor() {
 		return color;
 	}
 	
@@ -41,7 +41,7 @@ public class RevLBrick implements IBricks {
 	public void clearBrick(EnumStatus status) {
 		for (int i=0;i<THREE;i++) {
 			for ( int j=0; j<THREE; j++) {
-				brick[i][j] = controller.Controller.EnumColor.empty;
+				brick[i][j] = EnumColor.empty;
 			}
 		}
 	}
