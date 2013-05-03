@@ -49,9 +49,9 @@ public class Playfield {
 	}
 	
 	public void setBrick(int[][] brick, int x, int y) {
-		for (int i = 0; i < THREE+1; i++) {
-			for ( int j = 0; j < THREE+1; j++) {
-				playfield[x-i][y-j] = brick[i][j];
+		for (int i = 0; i < THREE; i++) {
+			for ( int j = 0; j < THREE; j++) {
+				playfield[x+i][y+j] = brick[i][j];
 			}
 		}
 	}

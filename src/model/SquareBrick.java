@@ -24,6 +24,10 @@ public class SquareBrick implements IBricks {
 	public int[][] getBrick() {
 		return brick;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
 
 	public int getColor() {
 		return color;

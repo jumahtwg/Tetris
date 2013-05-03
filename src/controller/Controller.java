@@ -57,18 +57,19 @@ public class Controller extends Observable {
 		this.ySize = ySize;
 		playfield = new Playfield(xSize, ySize);
 		tmpField = playfield;
-		notifyShowGameArray();
+		
 		setTopBrick();
 	}
 	
 	public void setTopBrick() {
+		notifyShowGameArray();
 		playBrick = createRandomBrick();
 		int middle = playfield.getStartMiddle();
 		brickSlot = middle;
-		if (playfield.getCheckCollision(playBrick, middle, brickLine) == true) {
+		if (playfield.getCheckCollision(playBrick, brickLine, middle) == true) {
 			System.out.println("collision on spawn");
 		} else {
-			playfield.setBrick(playBrick, middle, brickLine);
+			playfield.setBrick(playBrick, brickLine, middle);
 			notifyShowGameArray();
 			lowerBrick();
 		}
@@ -77,13 +78,14 @@ public class Controller extends Observable {
 	public void lowerBrick() {
 		playfield = tmpField;
 		++brickLine;
-		if (playfield.getCheckCollision(playBrick, brickSlot, brickLine)) {
+		if (playfield.getCheckCollision(playBrick, brickLine, brickSlot)) {
 			System.out.println("Collision!");
 		} else {
-			playfield.setBrick(playBrick, brickSlot, brickLine);
+			playfield.setBrick(playBrick, brickLine, brickSlot);
 			tmpField = playfield;
 			try {
 				Thread.sleep(gameSpeed);
+				notifyShowGameArray();
 				lowerBrick();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

@@ -50,6 +50,7 @@ public class TUI implements IObserver {
 		this.inputThread.setDaemon(true);
 		this.inputThread.setName("InputThread");
 		this.inputThread.start();
+
 	}
 
 	@Override
@@ -61,11 +62,13 @@ public class TUI implements IObserver {
 	@Override
 	public void updateShowGameArray() {
 		int[][] playfield = controller.getPlayfield();
-		for (int i = 0;i < controller.getxSize();i++) {
-			for ( int j = 0; j < controller.getySize(); j++) {
-				System.out.println(playfield[i][j]);
+		for (int i = 0; i <= controller.getySize()-1;i++) {
+			System.out.println("");
+			for ( int j = 0; j <= controller.getxSize()-1; j++) {
+				System.out.print(playfield[i][j]);
 			}
 		}
+		System.out.println("");
 		
 		
 	}
