@@ -20,16 +20,16 @@ public class TUI implements IObserver {
 		
 		public void run() {
 			while (true) {		
-				String input = scan.next();
+				int input = scan.nextInt();
 				
 				switch (input) {
-				case "a":
+				case 4:
 					ctrl.setMove(EnumMove.moveLeft);
 					break;
-				case "d":
+				case 6:
 					ctrl.setMove(EnumMove.moveRight);
 					break;
-				case "s":
+				case 5:
 					ctrl.setMove(EnumMove.moveDown);		
 					break;
 				default:
