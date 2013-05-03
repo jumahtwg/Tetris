@@ -16,7 +16,7 @@ import model.ZBrick;
 
 public class Controller {
 	
-	model.EnumColor[][] actBrick;
+	EnumColor[][] actBrick;
 	
 
 	/*

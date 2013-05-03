@@ -1,24 +1,26 @@
 package imodel;
+import model.EnumColor;
+import model.EnumStatus;
 
 public interface IBricks {
 	
-	model.EnumColor[][] getBrick();
+	EnumColor[][] getBrick();
 	/*
 	 * get the color or empty
 	 */
-	model.EnumColor getColor();
+	EnumColor getColor();
 	/*
 	 * rotate the brick to the left side
 	 */
-	void rotateLEFT(model.EnumStatus stat);
+	void rotateLEFT(EnumStatus stat);
 	/*
 	 * rotate the brick to the right side
 	 */
-	void rotateRIGHT(model.EnumStatus stat);
+	void rotateRIGHT(EnumStatus stat);
 	/*
 	 * set the enum status (color or empty)
 	 */
-	void setStatus(model.EnumStatus status);
+	void setStatus(EnumStatus status);
 	/*
 	 * variable against magic numbers
 	 */
