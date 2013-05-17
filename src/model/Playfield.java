@@ -32,10 +32,10 @@ public class Playfield {
 		for(int i = 0; i <= playfieldWidth; i++) {
 				playfield[i][rowNumber] = 0;
 		}
-		resetPlayfieldaD(rowNumber);
+		resetPlayfieldaDelete(rowNumber);
 	}
 
-	public void resetPlayfieldaD(int rowNumber){
+	public void resetPlayfieldaDelete(int rowNumber){
 		int[][] tmpPlayfield = new int[playfieldWidth][playfieldHeight];
 		for (int i = 0 ;i <= playfieldWidth;i++) {
 			for ( int j = playfieldHeight; j == 0; j--) {
