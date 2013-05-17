@@ -13,7 +13,7 @@ public class LBrick implements IBricks {
 	 */
 	public LBrick() {
 		color = 2;
-		brick = new int[THREE][THREE];
+		brick = new int[FOUR][FOUR];
 		brick[1][0] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;

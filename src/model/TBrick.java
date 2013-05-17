@@ -14,7 +14,7 @@ public class TBrick implements IBricks {
 	 */
 	public TBrick() {
 		color = 4;
-		brick = new int[THREE][THREE];
+		brick = new int[FOUR][FOUR];
 		brick[1][1] = color;
 		brick[0][2] = color;
 		brick[1][2] = color;

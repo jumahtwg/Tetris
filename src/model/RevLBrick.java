@@ -14,7 +14,7 @@ public class RevLBrick implements IBricks {
 	 */
 	public RevLBrick() {
 		color = 3;
-		brick = new int[THREE][THREE];
+		brick = new int[FOUR][FOUR];
 		brick[2][0] = color;
 		brick[2][1] = color;
 		brick[2][2] = color;

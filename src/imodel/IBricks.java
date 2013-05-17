@@ -25,6 +25,7 @@ public interface IBricks {
 	 * variable against magic numbers
 	 */
 	static int THREE = 3;
+	static int FOUR = 4;
 	
 	
 }

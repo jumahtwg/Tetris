@@ -14,7 +14,7 @@ public class ZBrick implements IBricks {
 	 */
 	public ZBrick() {
 		color = 6;
-		brick = new int[THREE][THREE];
+		brick = new int[FOUR][FOUR];
 		brick[0][1] = color;
 		brick[1][1] = color;
 		brick[1][2] = color;

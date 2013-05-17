@@ -13,7 +13,7 @@ public class Playfield {
 		playfieldHeight = height;
 		playfieldWidth = width;
 		playfield = new int[playfieldWidth][playfieldHeight];
-		middle = playfieldWidth/2;
+		middle = (playfieldWidth/2) - 2;
 	}
 	
 	public int[][] getPlayfield() {

@@ -14,7 +14,7 @@ public class SquareBrick implements IBricks {
 	public SquareBrick() {
 		status = 0;
 		color = 1;
-		brick = new int[THREE][THREE];
+		brick = new int[FOUR][FOUR];
 		brick[1][1] = color;
 		brick[1][2] = color;
 		brick[2][1] = color;

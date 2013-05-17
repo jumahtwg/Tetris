@@ -9,7 +9,7 @@ public class IBrick implements IBricks {
 	private int[][] brick;
 	private int color;
 	private int status;
-	private static final int FOUR = 4;
+
 	/*
 	 * standard constructor
 	 */
