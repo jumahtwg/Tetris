@@ -17,18 +17,18 @@ import model.ZBrick;
 public class Controller extends Observable {
 	
 
-	int xSize;
-	int ySize;
-	int brickLine = 0;
-	int brickSlot = 0;
-	private int gameSpeed = 1000;
-	Playfield playfield;
-	Playfield tmpField;
+	private int xSize;
+	private int ySize;
+	private int brickLine = 0;
+	private int brickSlot = 0;
+	private static int GAMESPEED = 1000;
+	private Playfield playfield;
+	private Playfield tmpField;
 	public enum EnumMove {moveLeft, moveRight, moveDown, moveUp};
 	private EnumMove move;
-	int[][] playBrick;
-	IBricks brickObject;
-	int color;
+	private int[][] playBrick;
+	private IBricks brickObject;
+	private int color;
 
 	
 	public EnumMove getMove() {
@@ -80,7 +80,7 @@ public class Controller extends Observable {
 		playBrick = createRandomBrick();
 		int middle = playfield.getStartMiddle();
 		brickSlot = middle;
-		if (playfield.getCheckCollision(playBrick, color, brickLine, brickSlot) == true) {
+		if (playfield.getCheckCollision(playBrick, color, brickLine, brickSlot)) {
 			System.out.println("collision on spawn - Game Over!!");
 		} else {
 			playfield.setBrick(playBrick, color, brickLine, brickSlot);
@@ -101,7 +101,7 @@ public class Controller extends Observable {
 			playfield.setBrick(playBrick, color, brickLine, brickSlot);
 			tmpField = playfield;
 			try {
-				Thread.sleep(gameSpeed);
+				Thread.sleep(GAMESPEED);
 				notifyShowGameArray();
 				lowerBrick();
 			} catch (InterruptedException e) {
@@ -118,7 +118,7 @@ public class Controller extends Observable {
 	}
 	
 	public void setGameSpeed(int speed) {
-		gameSpeed = speed;
+		GAMESPEED = speed;
 	}
 	
 	public int[][] createRandomBrick() {

@@ -4,10 +4,11 @@ package model;
 
 public class Playfield {
 	private static final int FOUR = 4;
+	private static final int THREE = 3;
 	private int[][] playfield;
 	private int middle;
-	final private int playfieldWidth;
-	final private int playfieldHeight;
+	private final int playfieldWidth;
+	private final int playfieldHeight;
 	
 	public Playfield(int height, int width) {
 		playfieldHeight = height;
@@ -50,22 +51,24 @@ public class Playfield {
 	
 	public void setBrick(int[][] brick, int color, int x, int y) {
 		if (color == 7) {
-			
+			//TO-DO
+			return;
 		} else {
 		if (x == 0) {
-			for (int i = 0; i < 3; i++) {
-				for ( int j = 0; j < 3; j++) {
+			for (int i = 0; i < THREE; i++) {
+				for ( int j = 0; j < THREE; j++) {
 					playfield[x+i][y+j] = brick[j][i];
 				}
 			}
 		} else {
 			deletebrick(brick, color, x-1, y);
-			for (int i = 0; i < 3; i++) {
-				for ( int j = 0; j <= 3; j++) {
+			for (int i = 0; i < THREE; i++) {
+				for ( int j = 0; j <= THREE; j++) {
 					if (playfield[x+i][y+j] == 0) {
 						playfield[x+i][y+j] = brick[j][i];
 					} else {
 						// do nothing
+						return;
 					}
 				}
 			}
@@ -90,11 +93,9 @@ public class Playfield {
 		if ((x + 2) == playfieldHeight) {
 			return true;
 		} else {
-			for ( int j = 0; j <= 3; j++) {
-				if (brick[j][2] != 0) {
-					if (playfield[x+2][y+j] != 0) {
+			for ( int j = 0; j <= THREE; j++) {
+				if (brick[j][2] != 0 && playfield[x+2][y+j] != 0) {
 						return true;
-					}
 				}
 			}
 		}

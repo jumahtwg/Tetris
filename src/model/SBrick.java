@@ -13,7 +13,7 @@ public class SBrick implements IBricks {
 	 * standard constructor
 	 */
 	public SBrick() {
-		color = 5;
+		color = SBRICK;
 		brick = new int[FOUR][FOUR];
 		brick[0][2] = color;
 		brick[1][1] = color;
@@ -64,9 +64,9 @@ public class SBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			setDirection(3);
+			setDirection(THREE);
 			break;
-		case 3:
+		case THREE:
 			brick[0][2] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
@@ -98,9 +98,9 @@ public class SBrick implements IBricks {
 			brick[1][1] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			setDirection(3);
+			setDirection(THREE);
 			break;
-		case 3:
+		case THREE:
 			brick[0][2] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;

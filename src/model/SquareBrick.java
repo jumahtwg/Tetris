@@ -13,7 +13,7 @@ public class SquareBrick implements IBricks {
 	 */
 	public SquareBrick() {
 		status = 0;
-		color = 1;
+		color = SQUAREBRICK;
 		brick = new int[FOUR][FOUR];
 		brick[1][1] = color;
 		brick[1][2] = color;

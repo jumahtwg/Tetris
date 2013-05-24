@@ -14,7 +14,7 @@ public class IBrick implements IBricks {
 	 * standard constructor
 	 */
 	public IBrick() {
-		color = 7;
+		color = IBRICK;
 		brick = new int[FOUR][FOUR];
 		brick[1][0] = color;
 		brick[1][1] = color;

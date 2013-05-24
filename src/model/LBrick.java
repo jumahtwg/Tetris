@@ -12,7 +12,7 @@ public class LBrick implements IBricks {
 	 * standard constructor
 	 */
 	public LBrick() {
-		color = 2;
+		color = LBRICK;
 		brick = new int[FOUR][FOUR];
 		brick[1][0] = color;
 		brick[1][1] = color;
@@ -53,7 +53,7 @@ public class LBrick implements IBricks {
 			brick[2][2] = color;
 			brick[THREE][2] = color;
 			brick[THREE][1] = color;
-			setDirection(3);
+			setDirection(THREE);
 			break;
 		case 1:
 			brick[1][0] = color;
@@ -69,7 +69,7 @@ public class LBrick implements IBricks {
 			brick[0][2] = color;
 			setDirection(1);
 			break;
-		case 3:
+		case THREE:
 			brick[1][0] = color;
 			brick[2][0] = color;
 			brick[2][1] = color;
@@ -102,9 +102,9 @@ public class LBrick implements IBricks {
 			brick[2][2] = color;
 			brick[THREE][2] = color;
 			brick[THREE][1] = color;
-			setDirection(3);
+			setDirection(THREE);
 			break;
-		case 3:
+		case THREE:
 			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
