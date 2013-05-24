@@ -68,10 +68,10 @@ public class RevLBrick implements IBricks {
 			setDirection(1);
 			break;
 		case 3:
+			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			brick[1][THREE] = color;
-			brick[2][1] = color;
+			brick[2][0] = color;
 			setDirection(2);
 			break;
 		}
@@ -88,10 +88,10 @@ public class RevLBrick implements IBricks {
 			setDirection(1);
 			break;
 		case 1:
+			brick[1][0] = color;
 			brick[1][1] = color;
 			brick[1][2] = color;
-			brick[1][THREE] = color;
-			brick[2][1] = color;
+			brick[2][0] = color;
 			setDirection(2);
 			break;
 		case 2:

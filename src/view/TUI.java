@@ -32,6 +32,9 @@ public class TUI implements IObserver {
 				case 5:
 					ctrl.setMove(EnumMove.moveDown);		
 					break;
+				case 8:
+					ctrl.setMove(EnumMove.moveUp);
+					break;
 				default:
 					break;
 				}				
@@ -62,9 +65,9 @@ public class TUI implements IObserver {
 	@Override
 	public void updateShowGameArray() {
 		int[][] playfield = controller.getPlayfield();
-		for (int i = 0; i <= controller.getySize()-1;i++) {
+		for (int i = 0; i <= controller.getxSize()-1;i++) {
 			System.out.println("");
-			for ( int j = 0; j <= controller.getxSize()-1; j++) {
+			for ( int j = 0; j <= controller.getySize()-1; j++) {
 				System.out.print(playfield[i][j]);
 			}
 		}

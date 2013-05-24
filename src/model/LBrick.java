@@ -70,10 +70,10 @@ public class LBrick implements IBricks {
 			setDirection(1);
 			break;
 		case 3:
-			brick[1][1] = color;
+			brick[1][0] = color;
+			brick[2][0] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[2][THREE] = color;
 			setDirection(2);
 			break;
 		}
@@ -91,10 +91,10 @@ public class LBrick implements IBricks {
 			setDirection(1);
 			break;
 		case 1:
-			brick[1][1] = color;
+			brick[1][0] = color;
+			brick[2][0] = color;
 			brick[2][1] = color;
 			brick[2][2] = color;
-			brick[2][THREE] = color;
 			setDirection(2);
 			break;
 		case 2:

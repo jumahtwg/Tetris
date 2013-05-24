@@ -1,6 +1,7 @@
 package controller;
 
 
+import imodel.IBricks;
 import observer.Observable;
 import model.IBrick;
 import model.LBrick;
@@ -23,10 +24,11 @@ public class Controller extends Observable {
 	private int gameSpeed = 1000;
 	Playfield playfield;
 	Playfield tmpField;
-	public enum EnumMove {moveLeft, moveRight, moveDown};
+	public enum EnumMove {moveLeft, moveRight, moveDown, moveUp};
 	private EnumMove move;
 	int[][] playBrick;
-	int[][] actBrick;
+	IBricks brickObject;
+	int color;
 
 	
 	public EnumMove getMove() {
@@ -35,6 +37,19 @@ public class Controller extends Observable {
 
 	public void setMove(EnumMove move) {
 		this.move = move;
+		switch(move) {
+			case moveLeft:
+				brickSlot--;
+				break;
+			case moveRight:
+				brickSlot++;
+				break;
+			case moveDown:
+				fastLowerBrick();
+				break;
+			case moveUp:
+				brickObject.rotateRIGHT();
+		}
 	}
 
 	public int[][] getPlayfield() {
@@ -62,14 +77,13 @@ public class Controller extends Observable {
 	}
 	
 	public void setTopBrick() {
-		notifyShowGameArray();
 		playBrick = createRandomBrick();
 		int middle = playfield.getStartMiddle();
 		brickSlot = middle;
-		if (playfield.getCheckCollision(playBrick, brickLine, middle) == true) {
-			System.out.println("collision on spawn");
+		if (playfield.getCheckCollision(playBrick, color, brickLine, brickSlot) == true) {
+			System.out.println("collision on spawn - Game Over!!");
 		} else {
-			playfield.setBrick(playBrick, brickLine, middle);
+			playfield.setBrick(playBrick, color, brickLine, brickSlot);
 			notifyShowGameArray();
 			lowerBrick();
 		}
@@ -78,10 +92,13 @@ public class Controller extends Observable {
 	public void lowerBrick() {
 		playfield = tmpField;
 		++brickLine;
-		if (playfield.getCheckCollision(playBrick, brickLine, brickSlot)) {
+		if (playfield.getCheckCollision(playBrick, color, brickLine, brickSlot)) {
 			System.out.println("Collision!");
+			brickLine = 0;
+			setTopBrick();
+			
 		} else {
-			playfield.setBrick(playBrick, brickLine, brickSlot);
+			playfield.setBrick(playBrick, color, brickLine, brickSlot);
 			tmpField = playfield;
 			try {
 				Thread.sleep(gameSpeed);
@@ -95,6 +112,7 @@ public class Controller extends Observable {
 		
 	}
 	
+	
 	public void fastLowerBrick() {
 		
 	}
@@ -104,38 +122,46 @@ public class Controller extends Observable {
 	}
 	
 	public int[][] createRandomBrick() {
-		int x = (((int) ((Math.random()*10) % 7)))+1;
-		switch (x) {
+		color = (((int) ((Math.random()*10) % 7)))+1;
+		int[][] actBrick = null;
+		switch (color) {
 		case 1:
-			SquareBrick sqrbrick = new SquareBrick();
+			IBricks sqrbrick = new SquareBrick();
 			actBrick = sqrbrick.getBrick();
+			brickObject = sqrbrick;
 			break;
 		case 7:
-			IBrick ibrick = new IBrick();
+			IBricks ibrick = new IBrick();
 			actBrick = ibrick.getBrick();
+			brickObject = ibrick;
 			break;
 		case 0:
 			createRandomBrick();
 			break;
 		case 6:
-			ZBrick zbrick = new ZBrick();
+			IBricks zbrick = new ZBrick();
 			actBrick = zbrick.getBrick();
+			brickObject = zbrick;
 			break;
 		case 5:
-			SBrick sbrick = new SBrick();
+			IBricks sbrick = new SBrick();
 			actBrick = sbrick.getBrick();
+			brickObject = sbrick;
 			break;
 		case 3:
-			RevLBrick revlbrick = new RevLBrick();
+			IBricks revlbrick = new RevLBrick();
 			actBrick = revlbrick.getBrick();
+			brickObject = revlbrick;
 			break;
 		case 4:
-			TBrick tbrick = new TBrick();
+			IBricks tbrick = new TBrick();
 			actBrick = tbrick.getBrick();
+			brickObject = tbrick;
 			break;
 		case 2:
-			LBrick lbrick = new LBrick();
+			IBricks lbrick = new LBrick();
 			actBrick = lbrick.getBrick();
+			brickObject = lbrick;
 			break;
 		default:
 			break;

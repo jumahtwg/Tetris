@@ -48,24 +48,58 @@ public class Playfield {
 		playfield = tmpPlayfield;
 	}
 	
-	public void setBrick(int[][] brick, int x, int y) {
+	public void setBrick(int[][] brick, int color, int x, int y) {
+		if (color == 7) {
+			
+		} else {
+		if (x == 0) {
+			for (int i = 0; i < 3; i++) {
+				for ( int j = 0; j < 3; j++) {
+					playfield[x+i][y+j] = brick[j][i];
+				}
+			}
+		} else {
+			deletebrick(brick, color, x-1, y);
+			for (int i = 0; i < 3; i++) {
+				for ( int j = 0; j <= 3; j++) {
+					if (playfield[x+i][y+j] == 0) {
+						playfield[x+i][y+j] = brick[j][i];
+					} else {
+						// do nothing
+					}
+				}
+			}
+		}
+		}
+
+	}
+	
+	public void deletebrick(int[][] brick, int color, int x, int y) {
 		for (int i = 0; i < FOUR; i++) {
 			for ( int j = 0; j < FOUR; j++) {
-				playfield[x+i][y+j] = brick[i][j];
+				if (playfield[x+i][y+j] == color) {
+					playfield[x+i][y+j] = 0;
+				} else {
+					playfield[x+i][y+j] = brick[j][i];
+				}
 			}
 		}
 	}
 	
-	public boolean getCheckCollision(int[][] brick, int x, int y) {
-		for (int i = FOUR; i == 0; i--) {
-			for ( int j = 0; j <= FOUR+1; j--) {
-				if(brick[i][j] != 0) {
-					if(playfield[x+i][y+j] != 0) {
+	public boolean getCheckCollision(int[][] brick, int color, int x, int y) {
+		if ((x + 2) == playfieldHeight) {
+			return true;
+		} else {
+			for ( int j = 0; j <= 3; j++) {
+				if (brick[j][2] != 0) {
+					if (playfield[x+2][y+j] != 0) {
 						return true;
 					}
 				}
 			}
 		}
+		
+
 		return false;
 	}
 }
