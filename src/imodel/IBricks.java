@@ -24,15 +24,15 @@ public interface IBricks {
 	/*
 	 * variable against magic numbers
 	 */
-	final int THREE = 3;
-	final int FOUR = 4;
-	final int SQUAREBRICK = 1;
-	final int LBRICK = 2;
-	final int REVLBRICK = 3;
-	final int TBRICK = 4;
-	final int SBRICK = 5;
-	final int ZBRICK = 6;
-	final int IBRICK = 7;
+	public static final int THREE = 3;
+	public static final int FOUR = 4;
+	public static final int SQUAREBRICK = 1;
+	public static final int LBRICK = 2;
+	public static final int REVLBRICK = 3;
+	public static final int TBRICK = 4;
+	public static final int SBRICK = 5;
+	public static final int ZBRICK = 6;
+	public static final int IBRICK = 7;
 	
 	
 	

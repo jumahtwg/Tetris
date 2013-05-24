@@ -17,11 +17,12 @@ import model.ZBrick;
 public class Controller extends Observable {
 	
 
+	private final int INITIALGAMESPEED = 1000;
 	private int xSize;
 	private int ySize;
 	private int brickLine = 0;
 	private int brickSlot = 0;
-	private static int GAMESPEED = 1000;
+	private int gamespeed = INITIALGAMESPEED;
 	private Playfield playfield;
 	private Playfield tmpField;
 	public enum EnumMove {moveLeft, moveRight, moveDown, moveUp};
@@ -101,7 +102,7 @@ public class Controller extends Observable {
 			playfield.setBrick(playBrick, color, brickLine, brickSlot);
 			tmpField = playfield;
 			try {
-				Thread.sleep(GAMESPEED);
+				Thread.sleep(gamespeed);
 				notifyShowGameArray();
 				lowerBrick();
 			} catch (InterruptedException e) {
@@ -118,7 +119,7 @@ public class Controller extends Observable {
 	}
 	
 	public void setGameSpeed(int speed) {
-		GAMESPEED = speed;
+		gamespeed = speed;
 	}
 	
 	public int[][] createRandomBrick() {
