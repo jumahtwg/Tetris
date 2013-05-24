@@ -17,7 +17,7 @@ import model.ZBrick;
 public class Controller extends Observable {
 	
 
-	private final int INITIALGAMESPEED = 1000;
+	private static final int INITIALGAMESPEED = 1000;
 	private int xSize;
 	private int ySize;
 	private int brickLine = 0;
